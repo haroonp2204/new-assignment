@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="rounded border border-top-0 bg-white mb-3">
+        <table class="table mb-0 table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th class="border-bottom-0" scope="col"></th>
+              <th class="border-bottom-0" scope="col">STOCK</th>
+              <th class="border-bottom-0" scope="col">START</th>
+              <th class="border-bottom-0" scope="col">VOLUME</th>
+              <th class="border-bottom-0" scope="col">Chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items ; let i = index">
+              <td>
+                <input type="checkbox" class="styled-checkbox" (change)="getgraph(i , item.ischecked , item.name)"  [(ngModel)]="item.ischecked"  name="item">
+                <label for="styled-checkbox-1"></label>
+              </td>
+              <td>{{item.name}}</td>
+              <td>{{item.date}}</td>
+              <td>{{item.volume}}</td>
+              <td>
+                <div *ngIf="item.ischecked" class="rounded p-3 my-2 mr-2 bg-chart shadow" id={{i}}></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
